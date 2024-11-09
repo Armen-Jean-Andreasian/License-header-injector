@@ -6,8 +6,9 @@ You just need to provide the licence text.
 
 
 ## Usage
-- Then importing the injector class
+- Extract the script file, then:
 
+  
 ```python
 from script import LicenceInjector
 
