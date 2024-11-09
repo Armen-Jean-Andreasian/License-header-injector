@@ -1,37 +1,35 @@
-## License header injector
+## License Header Injector
 
-License header injector is a python package that is designed to inject licence into your project files.
+**License Header Injector** is a Python package designed to easily insert license headers into your project's source files. Simply provide the license text, specify the file types, and let the script handle the rest.
 
-You just need to provide the licence text.
+### Usage
 
+1. Extract the script file and include it in your project.
 
-## Usage
-- Extract the script file, then:
+2. Use the following example to initialize the injector and insert the license headers:
 
-  
-```python
-from script import LicenceInjector
+   ```python
+   from script import LicenseInjector
 
-my_license_header_text = '''
-# This file is part of License header injector
-#
-# License header injector is licensed under the GNU General Public License v3.0.
-# See the LICENSE file for more details.
-#
-# Copyright (C) 2024 Armen-Jean Andreasian.
-'''
+   # Define your license header text as a multiline string
+   license_header_text = '''
+   # This file is part of License Header Injector.
+   #
+   # License Header Injector is licensed under the GNU General Public License v3.0.
+   # See the LICENSE file for more details.
+   #
+   # Copyright (C) 2024 Armen-Jean Andreasian.
+   '''
 
-# Yes, we pass it as a multiline string. 
-# If needed, you can keep it in a file, read then assign.
+   # Initialize the LicenseInjector with the desired parameters
+   injector = LicenseInjector(
+       license_header_text=license_header_text,  # str: The license header text
+       file_extensions=('.py', '.ts', '.go'),    # tuple[str]: File types to inject into
+       directory='.'                             # optional parameter, default is current directory
+   )
 
+   # Run the injector to add headers to the specified files
+   injector.inject()
 
-injector = LicenceInjector(
-    licence_header_text=my_license_header_text,  # str: The header text
-    file_extensions=('.py', '.ts', '.go'),  # tuple[str]: the file types that needed to be injected
-    directory = '.'  # optional parameter
-)
-
-injector.inject()
-
-# done! check the files!
-```
+   # License headers have now been added to the specified files!
+   ```
